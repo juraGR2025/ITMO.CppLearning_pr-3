@@ -10,6 +10,7 @@ void privet(string);
 
 int main()
 {
+	setlocale(LC_ALL, "Russian");
 	string name;
 	cout << "What is your name?" << endl;
 	cin >> name;
