@@ -1,0 +1,5 @@
+﻿  Cpp_practice_5-5.cpp
+C:\Users\Admin\source\repos\Cpp_practice_5-5\Cpp_practice_5-5.cpp(10,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Admin\source\repos\Cpp_practice_5-5\Cpp_practice_5-5.cpp(59,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Admin\source\repos\Cpp_practice_5-5\Cpp_practice_5-5.cpp(64,20): warning C4018: <: несоответствие типов со знаком и без знака
+  Cpp_practice_5-5.vcxproj -> C:\Users\Admin\source\repos\ITMO.CppLearning_pr-3\Debug\Cpp_practice_5-5.exe
