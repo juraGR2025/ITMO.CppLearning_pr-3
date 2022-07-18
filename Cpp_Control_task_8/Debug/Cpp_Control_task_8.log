@@ -1,2 +1,4 @@
-﻿  Cpp_Control_task_8.cpp
+﻿  time.cpp
+C:\Users\Admin\source\repos\Cpp_Control_task_8\time.cpp(157): warning C4715: Time::operator-: значение возвращается не при всех путях выполнения
+C:\Users\Admin\source\repos\Cpp_Control_task_8\time.cpp(197): warning C4715: Time::operator<=: значение возвращается не при всех путях выполнения
   Cpp_Control_task_8.vcxproj -> C:\Users\Admin\source\repos\ITMO.CppLearning_pr-3\Debug\Cpp_Control_task_8.exe

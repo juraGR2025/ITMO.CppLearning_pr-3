@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "time.h"
+#include "math.h"
 
 
 using namespace std;
@@ -51,6 +52,7 @@ Time::Time(int hours, int minutes, int seconds)
 		Time::set_minutes(minutes);
 		Time::set_seconds(seconds);
 }
+
 /*2. В файле time.cpp определяем конструктор, который инициализирует поля 0 значениями*/
 Time::Time()
 {
@@ -110,4 +112,87 @@ void  Time::time_sum(Time &t1, Time &t2)
 	cout << str << endl;
 }
 
+/*Требуется реализовать в классе Time (добавить в ранее созданный класс)
+перегрузку следующий операций:
+• сложение объектов Time,
+• вычитание объектов Time,
+• сложение объекта Time и переменной вещественного типа,
+• сложение переменной вещественного типа и объект Time,
+• сравнение двух объектов Time.
+Реализуйте возможность преобразования полученных результатов к
+корректному виду.
+В функции main() создайте требуемые объекты и проверьте работу
+перегруженных операций.
+*************************************************
+Определяем операторную функцию сложения времени:*/
+Time Time::operator+ (Time& t2) const
+{
+	int h = hour + t2.get_hours();
+	int m = minutes + t2.get_minutes();
+	int s = seconds + t2.get_seconds();
+
+	Time* t3 = new Time(h, m, s);// Конструктор Time(int hours, int minutes, int seconds) сам преобразует время к правильному типу...
+	cout << "Перегруженный оператор +  " << endl;
+	string str = to_string(t3->get_hours()) + " : " + to_string(t3->get_minutes()) + " : " + to_string(t3->get_seconds());
+	cout << str << endl;
+
+	return Time(h, m, s);
+}
+
+Time Time::operator-(Time& t2) const
+{
+	if ((hour * 60 * 60 + minutes * 60 + seconds) >= (t2.get_hours() * 60 * 60 + t2.get_minutes() * 60 + t2.get_seconds()))
+	{
+		int h = hour - t2.get_hours();
+		int m = minutes - t2.get_minutes();
+		int s = seconds - t2.get_seconds();
+
+		Time* t3 = new Time(h, m, s);// Конструктор Time(int hours, int minutes, int seconds) сам преобразует время к правильному типу...
+		cout << "Перегруженный оператор -  " << endl;
+		string str = to_string(t3->get_hours()) + " : " + to_string(t3->get_minutes()) + " : " + to_string(t3->get_seconds());
+		cout << str << endl;
+		return Time(h, m, s);
+	}
+	else cout << "Время вышло!" << endl;
+}
+
+Time Time::operator+=(double f) const
+{
+	int h = hour + (int)f;// Складываю значение часов и целой части вещественного числа
+	int m = minutes + (int)(abs(f - (int)f)*60);// Получаю значение минут числа f
+	int s = seconds;
+
+	Time* t3 = new Time(h, m, s);// Конструктор Time(int hours, int minutes, int seconds) сам преобразует время к правильному типу...
+	cout << "Перегруженный оператор +=  " << endl;
+	string str = to_string(t3->get_hours()) + " : " + to_string(t3->get_minutes()) + " : " + to_string(t3->get_seconds());
+	cout << str << endl;
+	return Time(h, m, s);
+}
+// • сложение переменной вещественного типа и объектa Time.
+Time Time::operator+(double f) const
+{
+	int h = hour + (int)f;// Складываю значение часов и целой части вещественного числа
+	int m = minutes + (int)(abs(f - (int)f) * 60);// Получаю значение минут числа f
+	int s = seconds;
+
+	Time* t3 = new Time(h, m, s);// Конструктор Time(int hours, int minutes, int seconds) сам преобразует время к правильному типу...
+	cout << "Перегруженный оператор + 2 раз  " << endl;
+	string str = to_string(t3->get_hours()) + " : " + to_string(t3->get_minutes()) + " : " + to_string(t3->get_seconds());
+	cout << str << endl;
+	return Time(h, m, s);
+}
+
+Time Time::operator<=(Time& t2) const
+{
+	if ((hour * 60 * 60 + minutes * 60 + seconds) <= (t2.get_hours() * 60 * 60 + t2.get_minutes() * 60 + t2.get_seconds()))
+	{
+		cout << "Перегруженный оператор <=  " << endl;
+		string str = "Значение времени " + to_string(t2.get_hours()) + " : " + to_string(t2.get_minutes()) + " : " + to_string(t2.get_seconds()) + 
+			" больше чем " + to_string(hour) + " : " + to_string(minutes) + " : " + to_string(seconds);
+		cout << str << endl;
+		return Time();
+	}
+	else cout << "Значение времени " + to_string(t2.get_hours()) + " : " + to_string(t2.get_minutes()) + " : " + to_string(t2.get_seconds()) +
+		" меньше чем " + to_string(hour) + " : " + to_string(minutes) + " : " + to_string(seconds) << endl;
+}
 

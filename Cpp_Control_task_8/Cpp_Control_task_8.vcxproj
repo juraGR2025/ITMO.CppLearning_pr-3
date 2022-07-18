@@ -24,6 +24,7 @@
     <ProjectGuid>{708db5aa-f706-4669-943c-9c760a7ec382}</ProjectGuid>
     <RootNamespace>CppControltask8</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Cpp_Control_task_11-1</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -139,7 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Cpp_Control_task_8.cpp" />
+    <ClCompile Include="Cpp_Control_task_11-1.cpp" />
     <ClCompile Include="time.cpp" />
   </ItemGroup>
   <ItemGroup>
